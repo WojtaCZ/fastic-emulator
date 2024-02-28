@@ -1,6 +1,20 @@
 from bitarray import bitarray, util
 import random
 
+
+def genEventPacket(channel, type, timestamp, pulsewidth, debug):
+    packet_ = bitarray(48)
+    packet_[0:4] = channel_[4:8]
+    packet_[4:6] = type_[6:8]
+    packet_[6:28] = timestamp_[2:24]
+    packet_[28:42] = pulsewidth_[2:16]
+    packet_[42:43] = 0
+    packet_[43:44] = channelParity_
+    packet_[44:45] = typeParity_
+    packet_[45:46] = timestampParity_
+    packet_[46:47] = pulsewidthParity_
+    packet_[47:48] = channelParity_ ^ typeParity_ ^ timestampParity_ ^ pulsewidthParity_
+
 def genRandomEventPacket():
     # Generate a random channel ID
     channel_ = bitarray()

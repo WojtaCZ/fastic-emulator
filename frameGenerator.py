@@ -1,3 +1,7 @@
+from bitarray import bitarray, util
+import random
+import numpy as np
+
 import fastic
 import aurora
 
