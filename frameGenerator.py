@@ -7,6 +7,8 @@ import aurora
 
 
 
+fastic.eventPacket.generateRandom()
+
 def convertToArray(values, colcount=8):
     # apply formatting to each element
     values = ['0x' + str(hex(v)[2:].zfill(8)) for v in values]
@@ -39,5 +41,3 @@ f.write(carray)
 print("Statistics")
 print("  Bit shift: " + str(shift))
 print("  Number of generated errors: " + str(errors))
-
-fastic.genStatPacket()
